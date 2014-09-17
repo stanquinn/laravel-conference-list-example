@@ -1,0 +1,33 @@
+/* Caution! Ensure accessibility in print and other media types... */
+@media projection, screen { /* Use class for showing/hiding tab content, so that visibility can be better controlled in different media types... */
+.tabs-hide {display: none;}
+}
+
+/* Hide useless elements in print layouts... */
+@media print {
+.tabs-nav {display: none;}
+}
+
+#phone-option {position: relative; margin: 1px 0 0 0; padding: 0;}
+.tabs-nav {background: #e3e3e3; padding: 4px 10px 0 10px; border-left: 1px solid #fff; border-right: 1px solid #fff; height: 25px; border-bottom: 1px solid #b2b2b2;}
+.tabs-nav:after { /* clearing without presentational markup, IE gets extra treatment */
+    display: block; clear: both; content: " ";}
+.tabs-nav li {display: block; float: left; position: relative; margin: 0 2px 0 0;}
+
+.tabs-nav a, .tabs-nav a span {display: block; padding:0 15px; font-size: 12px; background: url(../../img/selector_tab.png) no-repeat; line-height: 26px; font-weight: bold; margin-bottom: -2px; white-space: nowrap; /* required in IE 6 */}
+.tabs-nav a {background-position: 100% -100px; position: relative; z-index: 2;padding-left: 0; color: #555; text-align: center; text-decoration: none; white-space: nowrap; /* required in IE 6 */}
+
+.tabs-nav a:hover {text-decoration:none; color: #0b87bd; background-position: 100% -250px;}
+.tabs-nav li a span {width: 48px; /* IE 6 treats width as min-width */ min-width: 48px; height: 26px; /* IE 6 treats height as min-height */ min-height: 26px; padding-top: 0; padding-right: 0; background-position: 0 0;}
+*>.tabs-nav li a span { /* hide from IE 6 */ width: auto; height: auto;}
+
+.tabs-nav a:hover span {background-position: 0 -200px;}
+
+.tabs-nav .tabs-selected a, .tabs-nav .tabs-selected a span {display: block; padding:0 15px; font-size: 12px; background: url(../../img/selector_tab.png) no-repeat; line-height: 26px; font-weight: bold; margin-bottom: -2px;
+}
+.tabs-nav .tabs-selected a {background-position: 100% -150px; padding-left: 0; position: relative; z-index: 2; color: #555; text-align: center; white-space: nowrap; /* required in IE 6 */}
+.tabs-nav .tabs-selected a span {height: 27px; /* IE 6 treats height as min-height */ min-height: 27px; padding-top: 0; padding-right: 0; background-position: 0 -50px;}
+
+.tabs-nav .tabs-selected a:link, .tabs-nav .tabs-selected a:visited, .tabs-nav .tabs-disabled a:link, .tabs-nav .tabs-disabled a:visited { /* @ Opera, use pseudo classes otherwise it confuses cursor... */ cursor: text;}
+.tabs-nav a:hover, .tabs-nav a:focus, .tabs-nav a:active { /* @ Opera, we need to be explicit again here now... */ cursor: pointer;}
+.tabs-container {background: #fff; /* declare background color for container to avoid distorted fonts in IE while fading */}
